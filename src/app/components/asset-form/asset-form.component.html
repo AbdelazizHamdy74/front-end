@@ -1,0 +1,252 @@
+<!-- <div class="create-asset-container">
+  <h2>Create New Asset</h2>
+  <form [formGroup]="assetForm" (ngSubmit)="onSubmit()">
+    <div class="save-button">
+      <button type="submit" [disabled]="assetForm.invalid">Save</button>
+    </div>
+
+    <div class="form-columns">
+      <div class="form-column">
+        <div>
+          <label for="asset_type">Asset Type:</label>
+          <select id="asset_type" formControlName="asset_type">
+            <option value="Hardware">Hardware</option>
+            <option value="Software">Software</option>
+          </select>
+        </div>
+        <div>
+          <label for="asset_name">Asset Name:</label>
+          <input id="asset_name" formControlName="asset_name" type="text" />
+        </div>
+        <div>
+          <label for="serial_number">Serial Number:</label>
+          <input
+            id="serial_number"
+            formControlName="serial_number"
+            type="text"
+          />
+        </div>
+        <div>
+          <label for="supported">Supported:</label>
+          <select id="supported" formControlName="supported">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+        <div>
+          <label for="status">Status:</label>
+          <select id="status" formControlName="status">
+            <option value="New">New</option>
+            <option value="In Inventory">In Inventory</option>
+            <option value="Deployed">Deployed</option>
+            <option value="Decommissioned">Decommissioned</option>
+          </select>
+        </div>
+        <div>
+          <label for="attach_image">Attach Image:</label>
+          <input
+            id="attach_image"
+            type="file"
+            (change)="onFileSelected($event)"
+            accept="image/*"
+          />
+        </div>
+      </div>
+
+      <div class="form-column">
+        <div>
+          <label for="serviceName">Service:</label>
+          <input id="serviceName" formControlName="serviceName" type="text" />
+        </div>
+
+        <div>
+          <label for="productCategoryName">Product Category:</label>
+          <input
+            id="productCategoryName"
+            formControlName="productCategoryName"
+            type="text"
+          />
+        </div>
+        <div>
+          <label for="productSubCategoryName">Product Sub Category:</label>
+          <input
+            id="productSubCategoryName"
+            formControlName="productSubCategoryName"
+            type="text"
+          />
+        </div>
+        <div>
+          <label for="priority">Priority:</label>
+          <select id="priority" formControlName="priority">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="description">Description:</label>
+          <textarea id="description" formControlName="description"></textarea>
+        </div>
+      </div>
+    </div>
+  </form>
+  <p-divider></p-divider>
+  <app-related-tabs></app-related-tabs>
+</div> -->
+
+<!--  -->
+<!--  -->
+<!--  -->
+<form
+  [formGroup]="assetForm"
+  (ngSubmit)="onSubmit()"
+  class="create-asset-container"
+>
+  <!-- <div class="form-header">
+    <h2>Create New Asset</h2>
+    <button
+      pButton
+      type="submit"
+      label="Save"
+      [disabled]="assetForm.invalid"
+      class="save-button"
+    ></button>
+  </div> -->
+  <!-- <form [formGroup]="assetForm" (ngSubmit)="onSubmit()"> -->
+  <div class="save-button">
+    <button type="submit" [disabled]="assetForm.invalid" class="save-button">
+      Save
+    </button>
+  </div>
+
+  <div class="form-grid">
+    <!-- Left Column -->
+    <div class="form-column">
+      <div class="field">
+        <label for="asset_type">Asset Type:</label>
+        <p-dropdown
+          id="asset_type"
+          [options]="assetTypes"
+          formControlName="asset_type"
+          placeholder="Select Asset Type"
+        >
+        </p-dropdown>
+      </div>
+
+      <div class="field">
+        <label for="asset_name">Asset Name:</label>
+        <input
+          id="asset_name"
+          pInputText
+          formControlName="asset_name"
+          type="text"
+          placeholder="Enter Asset Name"
+        />
+      </div>
+
+      <div class="field">
+        <label for="serial_number">Serial Number:</label>
+        <input
+          id="serial_number"
+          pInputText
+          formControlName="serial_number"
+          type="text"
+          placeholder="Enter Serial Number"
+        />
+      </div>
+
+      <div class="field">
+        <label for="supported">Supported:</label>
+        <p-dropdown
+          id="supported"
+          [options]="supportedOptions"
+          formControlName="supported"
+          placeholder="Yes or No"
+        >
+        </p-dropdown>
+      </div>
+
+      <div class="field">
+        <label for="status">Status:</label>
+        <p-dropdown
+          id="status"
+          [options]="statusOptions"
+          formControlName="status"
+          placeholder="Select Status"
+        >
+        </p-dropdown>
+      </div>
+
+      <div class="field">
+        <label for="attach_image">Attach Image:</label>
+        <input
+          id="attach_image"
+          type="file"
+          (change)="onFileSelected($event)"
+          accept="image/*"
+        />
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="form-column">
+      <div class="field">
+        <label for="serviceName">Service:</label>
+        <input
+          id="serviceName"
+          pInputText
+          formControlName="serviceName"
+          type="text"
+          placeholder="Enter Service Name"
+        />
+      </div>
+      <div class="field">
+        <label for="productCategoryName">Product Category:</label>
+        <input
+          id="productCategoryName"
+          pInputText
+          formControlName="productCategoryName"
+          type="text"
+          placeholder="Enter Product Category"
+        />
+      </div>
+
+      <div class="field">
+        <label for="productSubCategoryName">Product Sub Category:</label>
+        <input
+          id="productSubCategoryName"
+          pInputText
+          formControlName="productSubCategoryName"
+          type="text"
+          placeholder="Enter Product Sub Category"
+        />
+      </div>
+
+      <div class="field">
+        <label for="priority">Priority:</label>
+        <p-dropdown
+          id="priority"
+          [options]="priorityOptions"
+          formControlName="priority"
+          placeholder="Select Priority"
+        >
+        </p-dropdown>
+      </div>
+
+      <div class="field">
+        <label for="description">Description:</label>
+        <textarea
+          id="description"
+          pInputTextarea
+          formControlName="description"
+          placeholder="Enter Description"
+        >
+        </textarea>
+      </div>
+    </div>
+  </div>
+
+  <p-divider></p-divider>
+  <app-related-tabs></app-related-tabs>
+</form>

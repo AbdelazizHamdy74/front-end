@@ -1,0 +1,12 @@
+body{
+    background-color: #f7f9fb;
+    margin: 0px;
+}
+.page{
+    display: flex;
+    flex-direction: row;
+    /* gap: 10px; */
+    justify-content: space-around;
+    background-color: #f7f9fb;
+    margin:20px;
+}

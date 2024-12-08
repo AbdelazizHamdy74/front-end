@@ -1,0 +1,34 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="p-fluid">
+        <div class="col1">
+             <div class="field">
+                <label for="company">Company</label>
+                <input id="company" type="text" pInputText formControlName="company" />
+              </div>
+              <div class="field">
+                <label for="site">Asset Site</label>
+                <input id="site" type="text" pInputText formControlName="site" />
+              </div>
+              <div class="field">
+                <label for="date">Installition Date</label>
+                <p-calendar id="date"  formControlName="date" />
+              </div>
+        </div>
+     <div class="col2">
+          <div class="field">
+            <label for="owner">Owner Name</label>
+            <input id="owner" type="text" pInputText formControlName="owner" />
+          </div>
+          <div class="field">
+            <label for="contact">Owner Contact</label>
+            <input id="contact" type="text" pInputText formControlName="ownercontact" />
+          </div>
+         
+     </div>
+     
+    </div>
+    <div class="btngroup">
+        <button class="submitbtn" pButton type="submit" [disabled]="form.invalid">Relate</button>
+        <button  class="removebtn" [disabled]="form.invalid">Remove</button>
+    </div>
+  </form>

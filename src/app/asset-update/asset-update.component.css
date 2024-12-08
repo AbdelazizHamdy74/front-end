@@ -1,0 +1,161 @@
+/* .card {
+  max-width: 990px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  position: relative;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input,
+form select,
+form textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+form textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+form input[type="checkbox"] {
+  width: auto;
+  margin-right: 5px;
+}
+
+button[type="submit"] {
+  background-color: #ff6600;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+button[type="submit"]:hover {
+  background-color: #e65c00;
+}
+
+button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+label[for="readonly"] input {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  color: #666;
+} */
+
+/*  */
+/*  */
+/* PrimeNg */
+.create-request-form {
+  width: 990px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  position: relative;
+}
+
+.form-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.save-button {
+  background-color: #ff6600;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background-color: #e65c00;
+}
+
+.form-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-left,
+.form-right {
+  width: 45%;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+
+  margin: 10px;
+}
+
+label {
+  width: 159px;
+  height: 16px;
+  flex-grow: 0;
+  font-family: SourceSansPro;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+}
+
+input,
+textarea,
+p-dropdown {
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}

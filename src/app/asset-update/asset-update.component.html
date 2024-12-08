@@ -1,0 +1,275 @@
+<!-- <h2>Update Asset</h2>
+<form (ngSubmit)="updateAsset()" enctype="multipart/form-data">
+  <div>
+    <label>
+      Product Category ID:
+      <input
+        type="text"
+        [(ngModel)]="asset.product_category_id"
+        name="product_category_id"
+        required
+      />
+    </label>
+  </div>
+  <div>
+    <label>
+      Product Sub-Category ID:
+      <input
+        type="text"
+        [(ngModel)]="asset.product_sub_category_id"
+        name="product_sub_category_id"
+        required
+      />
+    </label>
+  </div>
+  <div>
+    <label>
+      Service ID:
+      <input
+        type="text"
+        [(ngModel)]="asset.service_id"
+        name="service_id"
+        required
+      />
+    </label>
+  </div>
+  <div>
+    <label>
+      Asset Name:
+      <input
+        type="text"
+        [(ngModel)]="asset.asset_name"
+        name="asset_name"
+        required
+      />
+    </label>
+  </div>
+  <div>
+    <label>
+      Status:
+      <select [(ngModel)]="asset.status" name="status" required>
+        <option *ngFor="let status of statuses" [value]="status">
+          {{ status }}
+        </option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label>
+      Priority:
+      <select [(ngModel)]="asset.priority" name="priority" required>
+        <option *ngFor="let priority of priorities" [value]="priority">
+          {{ priority }}
+        </option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label>
+      Supported:
+      <input type="checkbox" [(ngModel)]="asset.supported" name="supported" />
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Description:
+      <textarea [(ngModel)]="asset.description" name="description"></textarea>
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Asset Type:
+      <input type="text" [value]="asset.asset_type" disabled />
+    </label>
+  </div>
+  <div>
+    <label>
+      Serial Number:
+      <input type="text" [value]="asset.serial_number" disabled />
+    </label>
+  </div>
+
+  <div>
+    <img
+      *ngIf="asset.attach_image"
+      [src]="'http://localhost:4000/uploads/assets/' + asset.attach_image"
+      alt="{{ asset.asset_name }}"
+      style="width: 50px; height: 50px; object-fit: cover"
+    />
+  </div>
+  <div>
+    <label>
+      Upload New Image (optional):
+      <input type="file" (change)="onFileSelected($event)" />
+    </label>
+  </div>
+
+
+  <button type="submit" [disabled]="isLoading">Save</button>
+</form> -->
+
+<!--  -->
+<!--  -->
+<!-- primeNg -->
+<form
+  (ngSubmit)="updateAsset()"
+  enctype="multipart/form-data"
+  class="create-request-form"
+>
+  <div class="form-header">
+    <h2>Update Asset</h2>
+    <button
+      pButton
+      type="submit"
+      label="Save"
+      class="save-button"
+      [disabled]="isLoading"
+    ></button>
+  </div>
+
+  <div class="form-grid">
+    <!-- القسم الأيسر -->
+    <div class="form-left">
+      <div class="field">
+        <label for="productCategoryId">Product Category ID:</label>
+        <input
+          pInputText
+          id="productCategoryId"
+          type="text"
+          [(ngModel)]="asset.product_category_id"
+          name="product_category_id"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="productSubCategoryId">Product Sub-Category ID:</label>
+        <input
+          pInputText
+          id="productSubCategoryId"
+          type="text"
+          [(ngModel)]="asset.product_sub_category_id"
+          name="product_sub_category_id"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="serviceId">Service ID:</label>
+        <input
+          pInputText
+          id="serviceId"
+          type="text"
+          [(ngModel)]="asset.service_id"
+          name="service_id"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="status">Status:</label>
+        <p-dropdown
+          id="status"
+          [options]="statuses"
+          [(ngModel)]="asset.status"
+          name="status"
+          placeholder="Select Status"
+          required
+        >
+        </p-dropdown>
+      </div>
+
+      <div class="field">
+        <label for="priority">Priority:</label>
+        <p-dropdown
+          id="priority"
+          [options]="priorities"
+          [(ngModel)]="asset.priority"
+          name="priority"
+          placeholder="Select Priority"
+          required
+        >
+        </p-dropdown>
+      </div>
+
+      <div class="field">
+        <label for="supported">Supported:</label>
+        <p-checkbox
+          id="supported"
+          [(ngModel)]="asset.supported"
+          binary="true"
+          name="supported"
+        >
+        </p-checkbox>
+      </div>
+    </div>
+
+    <!-- القسم الأيمن -->
+    <div class="form-right">
+      <div class="field">
+        <label for="assetName">Asset Name:</label>
+        <input
+          pInputText
+          id="assetName"
+          type="text"
+          [(ngModel)]="asset.asset_name"
+          name="asset_name"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="description">Description:</label>
+        <textarea
+          id="description"
+          pInputTextarea
+          [(ngModel)]="asset.description"
+          name="description"
+          placeholder="Enter Description"
+        >
+        </textarea>
+      </div>
+
+      <div class="field">
+        <label for="assetType">Asset Type:</label>
+        <input
+          pInputText
+          id="assetType"
+          type="text"
+          [value]="asset.asset_type"
+          disabled
+        />
+      </div>
+
+      <div class="field">
+        <label for="serialNumber">Serial Number:</label>
+        <input
+          pInputText
+          id="serialNumber"
+          type="text"
+          [value]="asset.serial_number"
+          disabled
+        />
+      </div>
+
+      <div class="field">
+        <label for="attachImage">Attach Image:</label>
+        <div>
+          <img
+            *ngIf="asset.attach_image"
+            [src]="'http://localhost:4000/uploads/assets/' + asset.attach_image"
+            alt="{{ asset.asset_name }}"
+            style="width: 50px; height: 50px; object-fit: cover"
+          />
+          <input
+            id="attachImage"
+            type="file"
+            (change)="onFileSelected($event)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

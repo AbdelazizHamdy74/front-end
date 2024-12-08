@@ -1,0 +1,38 @@
+<div class="card flex justify-content-center p-panel-container">
+  <button pButton type="submit" label="Filter Navigation" [rounded]="true" class="filter-button"></button>
+
+    <p-panelMenu 
+      [model]="items" 
+      [multiple]="true"
+      styleClass="w-full md:w-20rem custom-panel-menu">
+      <ng-template pTemplate="item" let-item>
+        <ng-container *ngIf="item.route; else urlTemplate">
+          <a 
+            [routerLink]="item.route" 
+            class="menu-item-link">
+            <span [class]="item.icon" class="menu-item-icon"></span>
+            <span class="menu-item-label">{{ item.label }}</span>
+          </a>
+        </ng-container>
+        <ng-template #urlTemplate>
+          <a 
+            *ngIf="item.url; else defaultTemplate" 
+            [href]="item.url" 
+            class="menu-item-link" 
+            target="_blank" 
+            rel="#">
+            <span [class]="item.icon" class="menu-item-icon"></span>
+            <span class="menu-item-label">{{ item.label }}</span>
+          </a>
+          <ng-template #defaultTemplate>
+            <span class="menu-item-link">
+              <span [class]="item.icon" class="menu-item-icon"></span>
+              <span class="menu-item-label">{{ item.label }}</span>
+              <i *ngIf="item.items" class="pi pi-plus ml-auto"></i>
+            </span>
+          </ng-template>
+        </ng-template>
+      </ng-template>
+    </p-panelMenu>
+  </div>
+  

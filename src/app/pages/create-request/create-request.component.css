@@ -1,0 +1,7 @@
+.page {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  /* justify-content: space-evenly; */
+  background-color: #f7f9fb;
+}

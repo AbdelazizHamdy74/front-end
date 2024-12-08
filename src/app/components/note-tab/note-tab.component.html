@@ -1,0 +1,33 @@
+<div class="card">
+    <form [formGroup]="formGroup">
+        <div class="field">
+        <label for="note" id="nlabal">Note</label>
+        <textarea 
+            id="note"
+            rows="5"
+            cols="30" 
+            pInputTextarea 
+            formControlName="text">
+        </textarea>
+        </div>
+        <div class="file">
+            <p-toast />
+            <p-fileUpload 
+                mode="basic" 
+                name="" 
+                chooseIcon="pi-paperclip" 
+                url="" 
+                accept="image/*" maxFileSize="5000000"  
+                [auto]="true" 
+                 />
+             <div class="uploadlabel">
+                <label>Attach file or drag and drop attachments</label>
+                <span>Maximum 5M - 3 files</span>
+             </div>    
+        </div>
+        <div class="btngroup">
+            <button class="submitbtn" pButton type="submit">Relate</button>
+            <button  class="removebtn" >Remove</button>
+        </div>
+    </form>
+</div>

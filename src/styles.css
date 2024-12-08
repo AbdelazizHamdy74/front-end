@@ -1,0 +1,169 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+.p-tabview {
+    border-radius: 10px;
+    border: 10px;
+    padding: 10px;
+  }
+  .p-calendar{
+    flex-grow: 1;
+  }
+.p-inputtext{
+  height: 35px;
+  border-radius: 4px;
+  background-color: #fafafa;
+  font-family: SourceSansPro;
+  font-size: 14px;
+  
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  /* line-height: 1.43; */
+  letter-spacing: normal; 
+  color: #44474e;
+}
+
+.custom-tabview .p-tabview-panels{
+    /* width: 1050px; */
+     /* height: 250px; */
+    /* margin: 84.2px 56px 0 74px; */
+    /* height: 237.2px; */
+  padding:15px;
+  border: solid 1px #ddd;
+  background-color: #fafafa;
+}
+.p-tabview-nav{
+    font-family: Poppins;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+}
+.p-tabview-nav li  .p-tabview-title{
+ color:#44474e
+}
+.p-tabview-nav li.p-highlight .p-tabview-title{
+    color: #000;
+}
+.p-datatable-thead{
+  font-family: Poppins;
+font-size: 16px;
+font-weight: normal;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: left;
+color: #000;
+}
+.p-datatable-tbody td {
+  padding: 10px; 
+}
+/* .p-datatable-thead td {
+  width: 20px;
+} */
+/* .p-datatable .p-datatable-tbody > tr > td {
+  width: 10px;
+} */
+.p-datatable-tbody{
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+}
+
+.p-button-icon-only{
+  width: 39.4px;
+  height: 39.4px;
+  flex-grow: 0;
+  margin: 0 14.3px 1.8px 0;
+  padding: 8.7px 8.7px 9.7px;
+  border-radius: 3px;
+  border: solid 1px #000;
+  background-color: #000;
+}
+.p-dropdown-trigger{
+  width: 20px;
+
+  background-color: #fafafa;
+}
+.p-icon {
+  display: inline-block;
+  width: 10px;
+}
+
+body{
+  background-color: #f7f9fb;
+  margin: 0px;
+
+}
+
+
+
+/* Customize the paginator container */
+.p-paginator {
+  color: #fe5000; 
+  border-radius: 8px;
+  padding: 10px;
+  margin: 5px;
+  display: flex;
+  justify-content: flex-end;
+  /* height: 40px; */
+
+}
+
+/* Style the paginator buttons */
+.p-paginator .p-paginator-first,
+.p-paginator .p-paginator-prev,
+.p-paginator .p-paginator-next,
+.p-paginator .p-paginator-last {
+  background-color:white; 
+  color: #fe5000; 
+  border: 2px solid #e8e8e8;
+  border-radius: 10px;
+  margin: 0 2px;
+  width: 10px;
+}
+
+/* Add hover effect to buttons */
+.p-paginator .p-paginator-first:hover,
+.p-paginator .p-paginator-prev:hover,
+.p-paginator .p-paginator-next:hover,
+.p-paginator .p-paginator-last:hover {
+  background-color: #fe5000;
+  color: white; /* White text */
+}
+
+/* Style the active page number */
+.p-paginator .p-paginator-pages .p-highlight {
+  background-color: #fe5000; 
+  color: white;
+  border-radius: 15px;
+  padding: 5px 5px;
+  height: 30px;
+}
+.p-paginator .p-paginator-pages :hover
+{
+  background-color:#ddd;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 0;
+}
+/* Dropdown styling (rows per page) */
+.p-paginator .p-dropdown {
+  color:#fe5000;
+  border-radius: 4px;
+}
+

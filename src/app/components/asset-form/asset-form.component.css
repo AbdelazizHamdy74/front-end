@@ -1,0 +1,225 @@
+.create-request-form {
+  width: 990px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  position: relative;
+}
+
+.form-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.save-button {
+  background-color: #ff6600;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background-color: #e65c00;
+}
+
+.form-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-left,
+.form-right {
+  width: 45%;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+
+  margin: 10px;
+}
+
+label {
+  width: 159px;
+  height: 16px;
+  flex-grow: 0;
+  font-family: SourceSansPro;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+}
+
+input,
+textarea,
+p-dropdown {
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+/* create-asset.component.css */
+/*  */
+/*  */
+/*  */
+/* html  */
+/* .create-asset-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.create-asset-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-columns {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.form-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-column div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form input[type="text"],
+form input[type="file"],
+form textarea,
+form select {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+form input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6600;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #e65c00;
+}
+
+button[type="submit"]:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #4caf50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+form input.ng-invalid.ng-touched,
+form textarea.ng-invalid.ng-touched,
+form select.ng-invalid.ng-touched {
+  border-color: #e74c3c;
+  box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+}
+
+form div.error {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.save-button {
+  background-color: #ff6600;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #e65c00;
+}
+
+.save-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+.save-button {
+  background-color: #ff6600;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 40px;
+  right: 120px;
+}
+
+.save-button:hover {
+  background-color: #e65c00;
+} */
