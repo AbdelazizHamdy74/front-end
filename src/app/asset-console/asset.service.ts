@@ -17,21 +17,21 @@ export class AssetService {
         params = params.set(key, filters[key]);
       }
     }
-    return this.http.get<any[]>(this.apiUrl, { params });
+    return this.http.get<any[]>(this.apiUrl, { params ,withCredentials: true});
   }
 
   getAssetById(assetId: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${assetId}`);
+    return this.http.get<any>(`${this.apiUrl}/${assetId}`,{withCredentials: true});
   }
 
   // updateAsset(assetId: string, asset: any): Observable<any> {
   //   return this.http.put<any>(`${this.apiUrl}/${assetId}`, asset);
   // }
   updateAsset(assetId: string, assetData: FormData): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${assetId}`, assetData);
+    return this.http.put<any>(`${this.apiUrl}/${assetId}`, assetData,{withCredentials: true});
   }
 
   createAsset(assetData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}`, assetData);
+    return this.http.post(`${this.apiUrl}`, assetData,{withCredentials: true});
   }
 }

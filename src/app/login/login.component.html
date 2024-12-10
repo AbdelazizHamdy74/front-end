@@ -1,0 +1,21 @@
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()"  class="signUp-form">
+    <h2>Login </h2> 
+    <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="text" pInputText formControlName="email" />
+    </div>
+    <div class="field">
+        <label for="password">Password</label>
+        <p-password id="password" formControlName="password" [toggleMask]="true" />
+    </div>
+    <!-- <div class="field">
+        <label for="role">Role</label>
+        <p-dropdown id="role" [options]="role" formControlName="role" placeholder="Select Role"></p-dropdown>
+    </div> -->
+    <div class="btngroup">
+        <button class="submitbtn" pButton type="submit" [disabled]="form.invalid">Login</button>
+        <button class="loginbtn" pButton (click)="gotoSignUp()">Signup</button>
+    </div>
+      
+</form>

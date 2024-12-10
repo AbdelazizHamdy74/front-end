@@ -28,7 +28,7 @@ h2 {
   font-weight: bold;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 5px 5px;
   cursor: pointer;
 }
 
@@ -77,6 +77,12 @@ p-dropdown {
 textarea {
   resize: none;
   height: 100px;
+}
+.card{
+  /* max-width: 900px; */
+  align-self: center;
+  /* margin: 0 auto; */
+
 }
 /* create-asset.component.css */
 /*  */

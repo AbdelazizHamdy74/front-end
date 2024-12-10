@@ -1,0 +1,42 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="signUp-form">
+    <h2> Signup</h2>
+    <div class="field">
+        <label for="name">Name</label>
+        <input id="name" type="text" pInputText formControlName="name" />
+    </div>
+    <div class="field">
+        <label for="phone">Phone</label>
+        <input id="phone" type="text" pInputText formControlName="phone" />
+    </div>
+    <div class="field">
+        <label for="companyid">Company Id</label>
+        <input id="companyid" type="text" pInputText formControlName="company_id" />
+    </div>
+    <div class="field">
+        <label for="HRid">HR Id</label>
+        <input id="HRid" type="text" pInputText formControlName="HrId" />
+    </div>
+    <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="text" pInputText formControlName="email" />
+    </div>
+    <div class="field">
+        <label for="password">Password</label>
+        <p-password id="password" formControlName="password" [toggleMask]="true" />
+    </div>
+    <!-- <div class="field">
+        <label for="confrim">Confirm password</label>
+        <p-password id="confrim" formControlName="confirmPassword"  [toggleMask]="true"/>
+    </div> -->
+    <div class="field">
+        <label for="role">Role</label>
+        <p-dropdown id="role" [options]="role" formControlName="role" placeholder="Select Role"></p-dropdown>
+    </div>
+    <div class="btngroup">
+        <button class="submitbtn" pButton type="submit" [disabled]="form.invalid">Sign Up</button>
+        <button class="loginbtn" pButton (click)="gotoLogin()">Login</button>
+    </div>
+
+
+
+</form>

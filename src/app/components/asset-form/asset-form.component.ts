@@ -126,6 +126,11 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { TabViewModule } from 'primeng/tabview';
+import { GeneralTabComponent } from '../general-tab/general-tab.component';
+import { ContractTabComponent } from '../contract-tab/contract-tab.component';
+import { NoteTabComponent } from '../note-tab/note-tab.component';
+import { UserTabComponent } from '../user-tab/user-tab.component';
 import { InputTextareaModule } from 'primeng/inputtextarea'; //
 import {
   BrowserAnimationsModule,
@@ -150,6 +155,9 @@ import { DividerModule } from 'primeng/divider';
   providers: [AssetService],
   imports: [
     CommonModule,
+    TabViewModule,
+    GeneralTabComponent,
+    ContractTabComponent,NoteTabComponent,UserTabComponent,
     ReactiveFormsModule,
     ButtonModule,
     InputTextModule,
@@ -161,7 +169,7 @@ import { DividerModule } from 'primeng/divider';
     RouterModule,
     FormsModule,
     TableModule,
-    RelatedTabsComponent,
+    // RelatedTabsComponent,
     DividerModule,
     // ActivatedRoute,
   ],
@@ -192,21 +200,21 @@ export class CreateAssetComponent {
     { label: 'Medium', value: 'Medium' },
     { label: 'Low', value: 'Low' },
   ];
-
+  
   constructor(
     private fb: FormBuilder,
     private assetService: AssetService,
     private router: Router
   ) {
     this.assetForm = this.fb.group({
-      // user_id: ['', Validators.required],
+      user_id: ['', Validators.required],
       // contract_id: ['', Validators.required],
       productCategoryName: ['', Validators.required],
       productSubCategoryName: ['', Validators.required],
-      // company_id: ['', Validators.required],
-      // asset_site_id: ['', Validators.required],
+      companyName: ['', Validators.required],
+      AssetSite: ['', Validators.required],
       serviceName: ['', Validators.required],
-      // notes_id: [''],
+      notes_id: [''],
       asset_name: ['', Validators.required],
       serial_number: ['', Validators.required],
       asset_type: ['', Validators.required],
@@ -219,6 +227,16 @@ export class CreateAssetComponent {
     });
   }
 
+  getCompanyAndSite(data: any) {
+    this.assetForm.get('companyName')?.setValue(data.company);
+    this.assetForm.get('AssetSite')?.setValue(data.site);
+  }
+  getNoteId(noteId: string) {
+   this.assetForm.get('notes_id')?.setValue(noteId);
+ }
+ getUserId(userId: string) {
+   this.assetForm.get('user_id')?.setValue(userId);
+ }
   onSubmit(): void {
     if (this.assetForm.valid) {
       const formData = new FormData();

@@ -98,12 +98,7 @@
 <!--  -->
 <!--  -->
 <!--  -->
-<form
-  [formGroup]="assetForm"
-  (ngSubmit)="onSubmit()"
-  class="create-asset-container"
->
-  <!-- <div class="form-header">
+ <!-- <div class="form-header">
     <h2>Create New Asset</h2>
     <button
       pButton
@@ -114,11 +109,19 @@
     ></button>
   </div> -->
   <!-- <form [formGroup]="assetForm" (ngSubmit)="onSubmit()"> -->
+<form
+  [formGroup]="assetForm"
+  (ngSubmit)="onSubmit()"
+  class="create-asset-container"
+>
+    <div class="form-header">
+    <h2>Create New Asset</h2>
   <div class="save-button">
     <button type="submit" [disabled]="assetForm.invalid" class="save-button">
       Save
     </button>
   </div>
+    </div>
 
   <div class="form-grid">
     <!-- Left Column -->
@@ -248,5 +251,21 @@
   </div>
 
   <p-divider></p-divider>
-  <app-related-tabs></app-related-tabs>
+  <!-- <app-related-tabs></app-related-tabs> -->
+  <div class="card">
+    <p-tabView class="custom-tabview">
+    <p-tabPanel header="General"> 
+        <app-general-tab (generalEvent)="getCompanyAndSite($event)"></app-general-tab>
+    </p-tabPanel>
+    <p-tabPanel header="Related Contract">
+      <app-contract-tab></app-contract-tab>
+    </p-tabPanel>
+    <p-tabPanel header="Related User">
+       <app-user-tab (userSelected)="getUserId($event)"></app-user-tab>
+    </p-tabPanel>
+    <p-tabPanel header="Add Note">
+        <app-note-tab (noteEvent)="getNoteId($event)"></app-note-tab>
+    </p-tabPanel>
+    </p-tabView>
+</div>
 </form>

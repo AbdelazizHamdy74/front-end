@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup ,ReactiveFormsModule,Validators} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext';
@@ -12,22 +12,26 @@ import { CalendarModule } from 'primeng/calendar';
 })
 export class GeneralTabComponent implements OnInit{
   form!: FormGroup ;
+  @Output() generalEvent = new EventEmitter<any>();
   constructor(private fb: FormBuilder, private http: HttpClient) {
    
   }
   ngOnInit(): void {
     this.form = this.fb.group({
-      company: ['Aitb', Validators.required],
-      site: ['Cairo', Validators.required],
-      owner: ['Ahmed', Validators.required],
-      ownercontact: ['01234567891', Validators.required],
-      date:['1/1/2024', Validators.required]
+      company: ['', Validators.required],
+      site: ['', Validators.required],
+      owner: [''],
+      ownercontact: [''],
+      date:['']
     });
     
   }
  onSubmit() {
   if(this.form.valid){
     console.log("submit",this.form.value);
+    this.generalEvent.emit({
+      company: this.form.value.company,
+      site: this.form.value.site});
   }else{
     console.log("error")
   }

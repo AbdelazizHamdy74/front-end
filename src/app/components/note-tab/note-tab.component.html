@@ -1,5 +1,5 @@
 <div class="card">
-    <form [formGroup]="formGroup">
+    <form [formGroup]="formGroup" (ngSubmit)="OnSubmit()">
         <div class="field">
         <label for="note" id="nlabal">Note</label>
         <textarea 
@@ -14,11 +14,15 @@
             <p-toast />
             <p-fileUpload 
                 mode="basic" 
-                name="" 
                 chooseIcon="pi-paperclip" 
+                name="images"
                 url="" 
-                accept="image/*" maxFileSize="5000000"  
+                accept="image/*" 
+                maxFileSize="5000000"  
                 [auto]="true" 
+                [customUpload]="true"
+                [multiple]="true"
+                (uploadHandler)="onFileSelect($event)"
                  />
              <div class="uploadlabel">
                 <label>Attach file or drag and drop attachments</label>
