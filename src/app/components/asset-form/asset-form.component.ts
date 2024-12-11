@@ -96,7 +96,7 @@ export class CreateAssetComponent {
   ) {
     this.assetForm = this.fb.group({
       user_id: ['', Validators.required],
-      // contract_id: ['', Validators.required],
+      contract_id: ['', Validators.required],
       productCategoryName: ['', Validators.required],
       productSubCategoryName: ['', Validators.required],
       companyName: ['', Validators.required],
@@ -121,6 +121,10 @@ export class CreateAssetComponent {
   }
   getNoteId(noteId: string) {
    this.assetForm.get('notes_id')?.setValue(noteId);
+ }
+ getContractId(contractId:string){
+  this.assetForm.get('contract_id')?.setValue(contractId);
+
  }
  getUserId(userId: string) {
    this.assetForm.get('user_id')?.setValue(userId);
