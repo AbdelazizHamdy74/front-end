@@ -10,8 +10,8 @@ import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'createAsset', component: CreateRequestComponent, canActivate:[authGuard],data:{roles:["Admin"] }},
-  { path: 'assetConsole', component: AssetConsoleComponent,canActivate:[authGuard],data:{roles:["Admin"] }},
+  { path: 'createAsset', component: CreateRequestComponent, canActivate:[authGuard],data:{roles:["Admin","Support"] }},
+  { path: 'assetConsole', component: AssetConsoleComponent,canActivate:[authGuard],data:{roles:["Admin","Support"] }},
   { path: 'update/:id', component: AssetUpdateComponent , canActivate:[authGuard],data:{roles:["Admin","Support"] }},
   { path: 'create', component: CreateAssetComponent },
   {path:'login',component:LoginComponent},

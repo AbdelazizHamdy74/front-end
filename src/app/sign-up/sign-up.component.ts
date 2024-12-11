@@ -36,6 +36,7 @@ export class SignUpComponent {
       this.addUserService.addUser(this.form.value).subscribe({
         next:(res)=>{
           console.log(res);
+          this.route.navigate(['/login']);
         },
         error:(err)=>{
           console.log(err);
