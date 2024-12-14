@@ -14,59 +14,57 @@ import { ButtonModule } from 'primeng/button';
   providers: [MessageService],
 })
 export class NavbarComponent {
-   items!: MenuItem[];
+  items!: MenuItem[];
 
-    constructor(private router: Router) {}
+  constructor(private router: Router) {}
 
-    ngOnInit() {
-        this.items = [
-            {
-                label: 'Create New',
-                items: [
-                    {
-                        label: 'Incident',
-                        icon: 'pi pi-objects-column',
-                        // route: '/Incident'
-                    },
-                    {
-                        label: 'Requests',
-                        icon: 'pi pi-file-edit',
-                        // route: '/configuration'
-                    },
-                    {
-                      label: 'Knowledge',
-                      icon: 'pi pi-file',
-                      // route: '/configuration'
-                  },
-                  {
-                    label: 'Asset',
-                    icon: 'pi pi-chart-line',
-                    route: '/createAsset'
-                  },{
-                    label: 'Contract',
-                    icon: 'pi pi-file',
-                    // route: '/configuration'
-                  }
-                ]
-            },
-            {
-                label: 'Console',
-                items: [
-                    {
-                      label: 'Asset',
-                      icon: 'pi pi-chart-line',
-                      route: '/assetConsole'
-                       
-                    },
-                    {
-                       
-                        label: 'Contract',
-                        icon: 'pi pi-file',
-                    }
-                ]
-            }
-        ];
-    }
-
-
+  ngOnInit() {
+    this.items = [
+      {
+        label: 'Create New',
+        items: [
+          {
+            label: 'Incident',
+            icon: 'pi pi-objects-column',
+            // route: '/Incident'
+          },
+          {
+            label: 'Requests',
+            icon: 'pi pi-file-edit',
+            // route: '/configuration'
+          },
+          {
+            label: 'Knowledge',
+            icon: 'pi pi-file',
+            // route: '/configuration'
+          },
+          {
+            label: 'Asset',
+            icon: 'pi pi-chart-line',
+            route: '/createAsset',
+          },
+          {
+            label: 'Contract',
+            icon: 'pi pi-file',
+            route: '/contracts/create',
+          },
+        ],
+      },
+      {
+        label: 'Console',
+        items: [
+          {
+            label: 'Asset',
+            icon: 'pi pi-chart-line',
+            route: '/assetConsole',
+          },
+          {
+            label: 'Contract',
+            icon: 'pi pi-file',
+            route: '/contracts',
+          },
+        ],
+      },
+    ];
+  }
 }

@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="container">
+    <div
+      style="display: flex; justify-content: space-between; align-items: center"
+    >
+      <div class="container" style="flex: 1">
+        <h2>Contracts List</h2>
+      </div>
+      <div
+        class="container"
+        style="flex: 1; display: flex; justify-content: flex-end"
+      >
+        <button class="save-button" (click)="navigateToCreate()">
+          Create New Contract
+        </button>
+      </div>
+    </div>
+
+    <p-table
+      [value]="contracts"
+      dataKey="id"
+      [resizableColumns]="false"
+      [paginator]="true"
+      [rows]="5"
+      styleClass="custom-table"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width: 4rem"><p-tableHeaderCheckbox /></th>
+          <th style="width: 15%">GUI ID</th>
+          <th style="width: 15%">Company</th>
+          <th style="width: 15%">Service</th>
+          <th style="width: 10%">status</th>
+          <th style="width: 10%">Period</th>
+          <th style="width: 10%">Status</th>
+          <th style="width: 10%">Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-contract>
+        <tr>
+          <td>
+            <p-tableCheckbox [value]="contract" />
+          </td>
+          <td>{{ contract.guiId }}</td>
+          <td>{{ contract.company }}</td>
+          <td>{{ contract.service || "N/A" }}</td>
+          <td>{{ contract.status_reason }}</td>
+          <td>{{ contract.period }}</td>
+          <td>{{ contract.status }}</td>
+          <td>
+            <button class="save-button" (click)="navigateToUpdate(contract.id)">
+              Edit
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

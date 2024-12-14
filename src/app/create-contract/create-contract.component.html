@@ -1,0 +1,95 @@
+<div class="card">
+  <div class="form-header">
+    <h2>Create Contract</h2>
+  </div>
+
+  <form [formGroup]="contractForm" (ngSubmit)="onSubmit()">
+    <div class="form-grid">
+      <div class="form-column">
+        <div class="field">
+          <label for="company">Company:</label>
+          <input
+            id="company"
+            pInputText
+            formControlName="company"
+            type="text"
+            placeholder="Enter company Name"
+          />
+        </div>
+
+        <div class="field">
+          <label for="service">Service:</label>
+          <input
+            id="service"
+            pInputText
+            formControlName="service"
+            type="text"
+            placeholder="Enter service Name"
+          />
+        </div>
+
+        <div class="field">
+          <label for="status_reason">Status Reason:</label>
+          <input
+            id="status_reason"
+            pInputText
+            formControlName="status_reason"
+            type="text"
+            placeholder="Enter status reason "
+          />
+        </div>
+      </div>
+      <div class="form-column">
+        <div class="field">
+          <label for="period">Period:</label>
+          <input
+            id="period"
+            pInputText
+            formControlName="period"
+            type="text"
+            placeholder="Enter period "
+          />
+        </div>
+
+        <div class="field">
+          <label for="status">Status:</label>
+          <p-dropdown
+            id="status"
+            [options]="statusOptions"
+            formControlName="status"
+            placeholder="Select Status"
+          >
+          </p-dropdown>
+        </div>
+      </div>
+    </div>
+    <button
+      pButton
+      type="submit"
+      label="Submit"
+      [disabled]="contractForm.invalid"
+      class="btn btn-primary"
+    ></button>
+    <div class="card">
+      <p-tabView class="custom-tabview">
+        <p-tabPanel header="General">
+          <app-relate-general-tab
+            (generalEvent)="getCompanyAndSite($event)"
+          ></app-relate-general-tab>
+        </p-tabPanel>
+        <p-tabPanel header="Related Asset">
+          <!-- <app-contract-tab></app-contract-tab> -->
+          <app-relate-asset-tab></app-relate-asset-tab>
+        </p-tabPanel>
+        <p-tabPanel header="Related User">
+          <app-relate-user-tab
+            (userSelected)="getUserId($event)"
+          ></app-relate-user-tab>
+        </p-tabPanel>
+        <p-tabPanel header="Add Note">
+          <app-note-tab (noteEvent)="getNoteId($event)"></app-note-tab>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+  </form>
+</div>
