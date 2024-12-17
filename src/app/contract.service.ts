@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ContractService {
   private apiUrl = 'http://localhost:4000/api/contracts';
+  private companyApiUrl = 'http://localhost:4000/api/companies';
 
   constructor(private http: HttpClient) {}
 
@@ -25,5 +26,9 @@ export class ContractService {
 
   updateContract(id: string, data: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/${id}`, data);
+  }
+  // to get all companies
+  getCompanies(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.companyApiUrl}`);
   }
 }

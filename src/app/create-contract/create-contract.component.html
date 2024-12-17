@@ -8,6 +8,21 @@
       <div class="form-column">
         <div class="field">
           <label for="company">Company:</label>
+          <p-dropdown
+            id="company"
+            [options]="companyOptions"
+            formControlName="company"
+            placeholder="Select Company"
+            optionLabel="label"
+            optionValue="label"
+            [filter]="true"
+            filterPlaceholder="Search for a company"
+          ></p-dropdown>
+        </div>
+        <!--  -->
+        <!--
+        <div class="field">
+          <label for="company">Company:</label>
           <input
             id="company"
             pInputText
@@ -15,7 +30,7 @@
             type="text"
             placeholder="Enter company Name"
           />
-        </div>
+        </div> -->
 
         <div class="field">
           <label for="service">Service:</label>
@@ -42,13 +57,13 @@
       <div class="form-column">
         <div class="field">
           <label for="period">Period:</label>
-          <input
+          <p-dropdown
             id="period"
-            pInputText
+            [options]="periodOptions"
             formControlName="period"
-            type="text"
-            placeholder="Enter period "
-          />
+            placeholder="Select Period"
+          >
+          </p-dropdown>
         </div>
 
         <div class="field">
@@ -78,7 +93,6 @@
           ></app-relate-general-tab>
         </p-tabPanel>
         <p-tabPanel header="Related Asset">
-          <!-- <app-contract-tab></app-contract-tab> -->
           <app-relate-asset-tab></app-relate-asset-tab>
         </p-tabPanel>
         <p-tabPanel header="Related User">
