@@ -40,7 +40,7 @@ export class NoteTabComponent {
    }
    this.Note.addNote(noteData).subscribe({
     next:(res:any)=>{console.log(res);
-      this.noteId=res.note.noteId;
+      this.noteId=res.note.text;
       this.noteEvent.emit(this.noteId);
       this.noteId="";
     },

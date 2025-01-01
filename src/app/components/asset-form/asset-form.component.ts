@@ -1,115 +1,3 @@
-// import { Component } from '@angular/core';
-// import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { ButtonModule } from 'primeng/button';
-// import { InputTextModule } from 'primeng/inputtext';
-// import { DropdownModule } from 'primeng/dropdown';
-// import { InputTextareaModule } from 'primeng/inputtextarea';
-// import { RelatedTabsComponent } from '../related-tabs/related-tabs.component';
-// import { DividerModule } from 'primeng/divider';
-
-// @Component({
-//   selector: 'app-asset-form',
-//   standalone: true,
-//   imports: [ReactiveFormsModule,DividerModule ,ButtonModule, InputTextModule, InputTextareaModule, DropdownModule, RelatedTabsComponent],
-//   templateUrl: './asset-form.component.html',
-//   styleUrl: './asset-form.component.css'
-// })
-// export class AssetFormComponent {
-//  myForm!: FormGroup;
-
-//  assetTypes = [
-//   { label: 'Laptop', value: 'laptop' },
-//   { label: 'Phone', value: 'phone' },
-//   { label: 'Tablet', value: 'tablet' },
-// ];
-// services = [
-//   { label: 'Laptop', value: 'laptop' },
-//   { label: 'Phone', value: 'phone' },
-// ];
-// productSubCategories  = [
-//   { label: 'Option 1', value: 'option1' },
-//   { label: 'Option 2', value: 'option2' },
-// ];
-// priorities = [
-//   { label: 'P1', value: 'p1' },
-//   { label: 'P2', value: 'p2' },
-// ];
-// supportedOptions  = [
-//   { label: 'Yes', value: 'yes' },
-//   { label: 'No', value: 'no' },
-// ];
-// assetStatuses = [
-//   { label: 'Active', value: 'active' },
-//   { label: 'Inactive', value: 'inactive' },
-// ];
-//  constructor(private fb: FormBuilder) {
-//   this.myForm = this.fb.group({
-//     assetType: ['', Validators.required],
-//     assetName: ['', Validators.required],
-//     serialNumber: ['', Validators.required],
-//     service: ['', Validators.required],
-//     productCategory: ['', Validators.required],
-//     productSubCategory1: ['', Validators.required],
-//     productSubCategory2: ['', Validators.required],
-//     priority: ['', Validators.required],
-//     description: ['', Validators.required],
-//     supported: ['', Validators.required],
-//     assetStatus: ['', Validators.required],
-//     attachImage: ['', Validators.required],
-//   });
-// }
-// onSubmit() {
-//   if (this.myForm.valid) {
-//     console.log('Form Submitted:', this.myForm.value);
-//   } else {
-//     console.log('Form is invalid');
-//   }
-// }
-
-// }
-
-// import { Component } from '@angular/core';
-// import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-// import { CommonModule, DatePipe } from '@angular/common';
-// import { FormsModule } from '@angular/forms';
-// import { AssetService } from '../../asset-console/asset.service';
-// import { RouterModule } from '@angular/router';
-// import { ButtonModule } from 'primeng/button';
-// import { TableModule } from 'primeng/table';
-
-// import { Component } from '@angular/core';
-// import {
-//   ReactiveFormsModule,
-//   FormBuilder,
-//   FormGroup,
-//   Validators,
-// } from '@angular/forms';
-// import { ButtonModule } from 'primeng/button';
-// import { InputTextModule } from 'primeng/inputtext';
-// import { DropdownModule } from 'primeng/dropdown';
-// import { InputTextareaModule } from 'primeng/inputtextarea';
-// import { RelatedTabsComponent } from '../related-tabs/related-tabs.component';
-// import { DividerModule } from 'primeng/divider';
-
-// @Component({
-//   selector: 'app-asset-console',
-//   standalone: true,
-//   imports: [
-//     CommonModule,
-//     FormsModule,
-//     RouterModule,
-//     ButtonModule,
-//     TableModule,
-//     RelatedTabsComponent,
-//     ReactiveFormsModule,
-//     DividerModule,
-//     ButtonModule,
-//     InputTextModule,
-//     InputTextareaModule,
-//     DropdownModule,
-//     RelatedTabsComponent,
-//   ],
-
 import { AssetService } from '../../asset-console/asset.service';
 import { Component } from '@angular/core';
 import {
@@ -208,7 +96,7 @@ export class CreateAssetComponent {
   ) {
     this.assetForm = this.fb.group({
       user_id: ['', Validators.required],
-      // contract_id: ['', Validators.required],
+      contract_id: ['', Validators.required],
       productCategoryName: ['', Validators.required],
       productSubCategoryName: ['', Validators.required],
       companyName: ['', Validators.required],
@@ -233,6 +121,10 @@ export class CreateAssetComponent {
   }
   getNoteId(noteId: string) {
    this.assetForm.get('notes_id')?.setValue(noteId);
+ }
+ getContractId(contractId:string){
+  this.assetForm.get('contract_id')?.setValue(contractId);
+
  }
  getUserId(userId: string) {
    this.assetForm.get('user_id')?.setValue(userId);

@@ -34,4 +34,8 @@ export class AssetService {
   createAsset(assetData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}`, assetData,{withCredentials: true});
   }
+
+  getbyContractId(contractId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/by-contract/${contractId}`,{withCredentials: true});
+}
 }

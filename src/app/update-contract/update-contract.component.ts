@@ -9,13 +9,27 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContractService } from '../contract.service';
 import { DropdownModule } from 'primeng/dropdown';
+import { TabViewModule } from 'primeng/tabview';
+import { DividerModule } from 'primeng/divider';
+
+//
+import { NoteTabComponent } from '../contract-tabs/note-tab/note-tab.component';
+import { RelateAssetTabComponent } from '../contract-tabs/relate-asset-tab/relate-asset-tab.component';
+import { RelateUserTabComponent } from '../contract-tabs/relate-user-tab/relate-user-tab.component';
+import { RelateGeneralTabComponent } from '../contract-tabs/relate-general-tab/relate-general-tab.component';
+import { not } from 'rxjs/internal/util/not';
 
 @Component({
   selector: 'app-update-contract',
   standalone: true,
   templateUrl: './update-contract.component.html',
   styleUrls: ['./update-contract.component.css'],
-  imports: [ReactiveFormsModule, DropdownModule],
+  imports: [ReactiveFormsModule, DropdownModule, TabViewModule,
+    DividerModule,
+    RelateAssetTabComponent,
+    // RelateUserTabComponent,
+    RelateGeneralTabComponent,
+    NoteTabComponent,],
 })
 export class UpdateContractComponent implements OnInit {
   periodOptions = [
@@ -26,7 +40,6 @@ export class UpdateContractComponent implements OnInit {
   contractForm: FormGroup;
 
   contractId: string = '';
-
   constructor(
     private fb: FormBuilder,
     private contractService: ContractService,
@@ -46,6 +59,24 @@ export class UpdateContractComponent implements OnInit {
       this.contractForm.patchValue(data);
     });
   }
+  getCompanyAndSite(data: any) {
+    // console.log(data);
+    this.contractForm.get('start_date')?.setValue(data.startdate);
+    this.contractForm.get('expiration_date')?.setValue(data.expdate);
+    this.contractForm.get('notification_date')?.setValue(data.notfdate);
+    this.contractForm.get('response_time')?.setValue(data.restime);
+    this.contractForm.get('restoration_time')?.setValue(data.restorationtime);
+    this.contractForm.get('resolution_time')?.setValue(data.resolutiontime);
+    this.contractForm.get('support_window')?.setValue(data.supportwindow);
+  }
+
+  getNoteId(noteId: string) {
+    this.contractForm.get('notes')?.setValue(noteId);
+  }
+
+  // getUserId(userId: string) {
+  //   this.contractForm.get('user_id')?.setValue(userId);
+  // }
 
   onSubmit(): void {
     if (this.contractForm.valid) {

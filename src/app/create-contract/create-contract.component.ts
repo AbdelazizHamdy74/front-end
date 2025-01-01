@@ -103,12 +103,14 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
+import { DividerModule } from 'primeng/divider';
 
 //
 import { NoteTabComponent } from '../contract-tabs/note-tab/note-tab.component';
 import { RelateAssetTabComponent } from '../contract-tabs/relate-asset-tab/relate-asset-tab.component';
 import { RelateUserTabComponent } from '../contract-tabs/relate-user-tab/relate-user-tab.component';
 import { RelateGeneralTabComponent } from '../contract-tabs/relate-general-tab/relate-general-tab.component';
+import { not } from 'rxjs/internal/util/not';
 interface Company {
   id: string;
   name: string;
@@ -129,8 +131,9 @@ interface Company {
     ButtonModule,
     TableModule,
     TabViewModule,
+    DividerModule,
 
-    RelateAssetTabComponent,
+    // RelateAssetTabComponent,
     RelateUserTabComponent,
     RelateGeneralTabComponent,
     NoteTabComponent,
@@ -160,6 +163,16 @@ export class CreateContractComponent implements OnInit {
       status_reason: [''],
       period: ['', Validators.required],
       status: ['', Validators.required],
+      start_date:[''],
+      expiration_date:[null],
+      notification_date:[''],
+      response_time:[''],
+      restoration_time:[''],
+      resolution_time:[''],
+      notes: [''],
+      // user_id: [''],
+      support_window: [''],
+
     });
   }
 
@@ -180,7 +193,7 @@ export class CreateContractComponent implements OnInit {
   ngOnInit(): void {
     this.contractService.getCompanies().subscribe(
       (response: any) => {
-        console.log('API Response:', response); // تحقق من أن البيانات تم جلبها بشكل صحيح
+        console.log('API Response:', response); 
         if (response && response.companies) {
           // this.companyOptions = response.companies.map((company: any) => ({
           this.companyOptions = response.companies.map((company: Company) => ({
@@ -198,16 +211,22 @@ export class CreateContractComponent implements OnInit {
   }
 
   getCompanyAndSite(data: any) {
-    this.contractForm.get('companyName')?.setValue(data.company);
-    this.contractForm.get('AssetSite')?.setValue(data.site);
+    // console.log(data);
+    this.contractForm.get('start_date')?.setValue(data.startdate);
+    this.contractForm.get('expiration_date')?.setValue(data.expdate);
+    this.contractForm.get('notification_date')?.setValue(data.notfdate);
+    this.contractForm.get('response_time')?.setValue(data.restime);
+    this.contractForm.get('restoration_time')?.setValue(data.restorationtime);
+    this.contractForm.get('resolution_time')?.setValue(data.resolutiontime);
+    this.contractForm.get('support_window')?.setValue(data.supportwindow);
   }
 
   getNoteId(noteId: string) {
-    this.contractForm.get('notes_id')?.setValue(noteId);
+    this.contractForm.get('notes')?.setValue(noteId);
   }
 
   getUserId(userId: string) {
-    this.contractForm.get('user_id')?.setValue(userId);
+    // this.contractForm.get('user_id')?.setValue(userId);
   }
 
   // onSubmit(): void {

@@ -4,6 +4,14 @@
   </div>
 
   <form [formGroup]="contractForm" (ngSubmit)="onSubmit()">
+    <div>
+      <button
+      pButton
+      type="submit"
+      label="Submit"
+      class="save-button"
+    ></button>
+    </div>
     <div class="form-grid">
       <div class="form-column">
         <div class="field">
@@ -78,13 +86,7 @@
         </div>
       </div>
     </div>
-    <button
-      pButton
-      type="submit"
-      label="Submit"
-      [disabled]="contractForm.invalid"
-      class="btn btn-primary"
-    ></button>
+    <p-divider></p-divider>
     <div class="card">
       <p-tabView class="custom-tabview">
         <p-tabPanel header="General">
@@ -92,14 +94,14 @@
             (generalEvent)="getCompanyAndSite($event)"
           ></app-relate-general-tab>
         </p-tabPanel>
-        <p-tabPanel header="Related Asset">
+        <!-- <p-tabPanel header="Related Asset">
           <app-relate-asset-tab></app-relate-asset-tab>
-        </p-tabPanel>
-        <p-tabPanel header="Related User">
+        </p-tabPanel> -->
+        <!-- <p-tabPanel header="Related User">
           <app-relate-user-tab
             (userSelected)="getUserId($event)"
           ></app-relate-user-tab>
-        </p-tabPanel>
+        </p-tabPanel> -->
         <p-tabPanel header="Add Note">
           <app-note-tab (noteEvent)="getNoteId($event)"></app-note-tab>
         </p-tabPanel>

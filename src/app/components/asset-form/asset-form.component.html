@@ -258,7 +258,7 @@
         <app-general-tab (generalEvent)="getCompanyAndSite($event)"></app-general-tab>
     </p-tabPanel>
     <p-tabPanel header="Related Contract">
-      <app-contract-tab></app-contract-tab>
+      <app-contract-tab (contractSelected)="getContractId($event)"></app-contract-tab>
     </p-tabPanel>
     <p-tabPanel header="Related User">
        <app-user-tab (userSelected)="getUserId($event)"></app-user-tab>

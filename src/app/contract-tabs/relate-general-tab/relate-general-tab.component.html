@@ -3,41 +3,52 @@
     <div class="col1">
       <div class="field">
         <label for="date">Start Date</label>
-        <p-calendar id="date" formControlName="date" />
+        <p-calendar id="date" formControlName="startdate" />
       </div>
       <div class="field">
         <label for="date">Expiration Date</label>
-        <p-calendar id="date" formControlName="date" />
+        <p-calendar id="date" formControlName="expdate" dateFormat="yy-mm-dd"/>
       </div>
       <div class="field">
-        <label for="date">Notification Date</label>
-        <p-calendar id="date" formControlName="date" />
+        <label for="notification">Notification Date</label>
+        <p-calendar id="notification" formControlName="notfdate" dateFormat="yy-mm-dd" />
       </div>
     </div>
     <div class="col2">
       <div class="field">
-        <label for="date">Response Time</label>
-        <p-calendar id="date" formControlName="date" />
+        <label for="response">Response Time</label>
+        <input id="response" type="number" formControlName="restime" />
       </div>
       <div class="field">
-        <label for="date">Restoration Time</label>
-        <p-calendar id="date" formControlName="date" />
+        <label for="restoration">Restoration Time</label>
+        <input id="restoration" type="number" formControlName="restorationtime" />
       </div>
       <div class="field">
-        <label for="date">Resolution Time</label>
-        <p-calendar id="date" formControlName="date" />
+        <label for="resolution">Resolution Time</label>
+        <!-- <p-calendar id="resolution" formControlName="resolutiontime" [showTime]="true" 
+        [timeOnly]="true"/> -->
+        <input type="number" formControlName="resolutiontime" id="resolution">
       </div>
     </div>
     <div class="col3">
-      <div class="field">
+      <!-- <div class="field">
         <label for="status">Status:</label>
         <p-dropdown
           id="status"
-          [options]="[1, 2, 3, 4, 5]"
+          [options]="statusOptions"
           formControlName="status"
           placeholder="Select Status"
         >
         </p-dropdown>
+      </div> -->
+      <div class="field">
+        <label for="supportwindow">Support window:</label>
+        <p-dropdown
+            id="supportwindow"
+            [options]="supportwindowOptions"
+            formControlName="supportwindow"
+            placeholder="24/7"
+          />
       </div>
     </div>
   </div>

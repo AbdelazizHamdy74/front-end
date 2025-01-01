@@ -34,9 +34,12 @@ export const routes: Routes = [
   { path: 'create', component: CreateAssetComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signUp', component: SignUpComponent },
-  { path: 'contracts', component: ListContractsComponent },
-  { path: 'contracts/create', component: CreateContractComponent },
-  { path: 'contracts/update/:id', component: UpdateContractComponent },
+  { path: 'contracts', component: ListContractsComponent, canActivate: [authGuard],
+    data: { roles: ['Admin'] } },
+  { path: 'contracts/create', component: CreateContractComponent, canActivate: [authGuard],
+    data: { roles: ['Admin'] }, },
+  { path: 'contracts/update/:id', component: UpdateContractComponent, canActivate: [authGuard],
+    data: { roles: ['Admin'] }, },
   { path: '**', redirectTo: 'login' },
 ];
 

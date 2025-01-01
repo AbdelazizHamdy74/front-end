@@ -1,6 +1,28 @@
 <div class="container">
   <h2>Update Contract</h2>
   <form [formGroup]="contractForm" (ngSubmit)="onSubmit()">
+    <div>
+      <div class="row2">
+   
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select id="status" class="form-control" formControlName="status">
+            <option value="Active">Active</option>
+            <option value="Down">Down</option>
+            <!-- <option value="Closed">Closed</option> -->
+          </select>
+        </div>
+        <div class="field">
+          <label for="period">Period:</label>
+          <p-dropdown
+            id="period"
+            [options]="periodOptions"
+            formControlName="period"
+            placeholder="Select Period"
+          >
+          </p-dropdown>
+        </div>
+      </div>
     <div class="form-group">
       <label for="status_reason">status reason</label>
       <textarea
@@ -10,24 +32,7 @@
         placeholder="Enter status_reason"
       ></textarea>
     </div>
-    <div class="field">
-      <label for="period">Period:</label>
-      <p-dropdown
-        id="period"
-        [options]="periodOptions"
-        formControlName="period"
-        placeholder="Select Period"
-      >
-      </p-dropdown>
-    </div>
-    <div class="form-group">
-      <label for="status">Status</label>
-      <select id="status" class="form-control" formControlName="status">
-        <option value="Active">Active</option>
-        <option value="Down">Down</option>
-        <!-- <option value="Closed">Closed</option> -->
-      </select>
-    </div>
+  
     <button
       type="submit"
       class="btn btn-primary"
@@ -35,5 +40,27 @@
     >
       Update
     </button>
+  </div>
+    <p-divider></p-divider>
+    <div class="card">
+      <p-tabView class="custom-tabview">
+        <p-tabPanel header="General">
+          <app-relate-general-tab
+            (generalEvent)="getCompanyAndSite($event)"
+          ></app-relate-general-tab>
+        </p-tabPanel>
+        <p-tabPanel header="Related Asset">
+          <app-relate-asset-tab [contractId]="contractId"></app-relate-asset-tab>
+        </p-tabPanel>
+        <!-- <p-tabPanel header="Related User">
+          <app-relate-user-tab
+            (userSelected)="getUserId($event)"
+          ></app-relate-user-tab>
+        </p-tabPanel> -->
+        <p-tabPanel header="Add Note">
+          <app-note-tab (noteEvent)="getNoteId($event)"></app-note-tab>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
   </form>
 </div>
